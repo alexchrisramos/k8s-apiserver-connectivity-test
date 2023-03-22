@@ -5,7 +5,7 @@ Test both internal kubernetes.default.svc and the provided ControlPlane loadBala
 export EXTERNAL_APISERVER_ADDRESS=<CP_LOADBALANCER_IP>:6443
 ```
 ```
-cat <<EOF | kubectl --kubeconfig apply -f -
+cat <<EOF | kubectl --kubeconfig ${CLUSTER_NAME}.conf apply -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -16,7 +16,7 @@ data:
 EOF
 ```
 ```
-cat <<EOF | kubectl --kubeconfig apply -f -
+cat <<EOF | kubectl --kubeconfig ${CLUSTER_NAME}.conf apply -f -
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
